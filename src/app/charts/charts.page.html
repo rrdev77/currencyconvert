@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <div class="chart-form">
+    <div class="form">
+      <form>
+        <input type="number" id="euro" (keyup)="getCurrencyData()" name="euro" placeholder="200 EUR" [(ngModel)]="euroNo">
+       <div class="toCurr">
+        <span>To:</span> 
+        <span>
+          <select [(ngModel)]="selectedCurrency" name="currencyList" (change)="currencyChange(selectedCurrency)">
+           <option>Select</option>
+            <option *ngFor="let item of currencyData | keyvalue">{{item.key}}</option>
+          </select>
+        </span>
+       </div>
+      </form>
+    </div>
+
+    <div class="chart-section">
+      <div id="container">
+
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

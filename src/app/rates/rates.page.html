@@ -1,0 +1,38 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Rates | Charts
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="rates-form">
+    <div class="form">
+      <form>
+        <input type="number" id="euro" (keyup)="getCurrencyData()" name="euro" placeholder="200 EUR" [(ngModel)]="euroNo">
+        </form>
+    </div>
+
+    <div class="currencies-data">
+      <div class="single" style="display: flex;" *ngFor="let item of currencyData | keyvalue">
+        <div>
+         <span>{{item.key}}</span> 
+        </div>
+       <div class="greater">></div>
+        <div class="converted">
+          <span>{{euroNo*item.value  | number:'1.0-3'}}</span>
+          <div class="converter"> 
+          <div>1 EUR = {{item.value | number:'1.0-3'}}&nbsp;{{item.key}}</div>
+          <div>1&nbsp;{{item.key}} = {{1/item.value | number:'1.0-3'}} EUR</div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</ion-content>
